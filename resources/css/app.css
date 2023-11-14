@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    body {
+        @apply bg-body text-white font-poppins
+    }
+}
+
+@layer utilities {
+    .sidebar {
+        @apply bg-soft-dark min-h-screen px-4 w-full max-w-[300px] py-8
+    }
+
+    .sidebar__menu {
+        @apply flex flex-col gap-4
+    }
+
+    .sidebar__menu--item {
+        @apply flex  py-4 px-2 rounded-lg cursor-pointer items-center gap-4 
+        hover:bg-primary-500 hover:shadow-primary-500/40 hover:shadow-md  hover:text-white transition-all
+    }
+
+    .sidebar__menu--item i {
+        @apply text-primary-500 text-2xl
+    }
+
+    .sidebar__menu--item:hover i {
+        @apply text-white
+    }
+}

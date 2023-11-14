@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  database:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: 'inventario-la-salle'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3307:3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
