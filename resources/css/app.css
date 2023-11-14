@@ -10,7 +10,7 @@
         @apply bg-body text-white font-poppins
     }
 
-    input {
+    input, textarea {
         @apply bg-secondary p-3 rounded-md outline-none focus:outline-primary-500
     }
 }
