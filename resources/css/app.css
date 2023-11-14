@@ -9,6 +9,10 @@
     body {
         @apply bg-body text-white font-poppins
     }
+
+    input {
+        @apply bg-secondary p-3 rounded-md outline-none focus:outline-primary-500
+    }
 }
 
 @layer utilities {
@@ -21,15 +25,56 @@
     }
 
     .sidebar__menu--item {
-        @apply flex  py-4 px-2 rounded-lg cursor-pointer items-center gap-4 
-        hover:bg-primary-500 hover:shadow-primary-500/40 hover:shadow-md  hover:text-white transition-all
+        @apply flex py-4 px-2 rounded-lg cursor-pointer items-center gap-4 hover:sidebar__menu--active hover:shadow-primary-500/40 hover:shadow-md hover:text-white transition-all
     }
 
     .sidebar__menu--item i {
         @apply text-primary-500 text-2xl
     }
 
+    .sidebar__menu--active {
+        @apply bg-gradient-to-tl to-primary-500 from-primary-700
+    }
+
+    .sidebar__menu--active i {
+        @apply text-white
+    }
+
+
     .sidebar__menu--item:hover i {
         @apply text-white
+    }
+}
+
+@layer components {
+
+    /* BUTTONS */
+    .btn-primary {
+        @apply text-white bg-gradient-to-tl to-primary-500 from-primary-700 py-3 px-4 rounded-md hover:shadow-lg hover:shadow-primary-500/40 transition-all active:scale-95
+    }
+
+    .btn-danger {
+        @apply text-white bg-gradient-to-tl to-red-500 from-red-700 py-3 px-4 rounded-md hover:shadow-lg hover:shadow-primary-500/40 transition-all active:scale-95
+    }
+
+    /* BUTTONS */
+    .btn-primary-icon {
+        @apply text-white bg-gradient-to-tl to-primary-500 from-primary-700 p-3 rounded-full block hover:shadow-lg hover:shadow-primary-500/40 transition-all active:scale-95
+    }
+
+    .btn-primary-icon i {
+        @apply flex
+    }
+
+    .btn-danger-icon {
+        @apply text-white bg-gradient-to-tl to-red-500 from-red-700 p-3 rounded-full block hover:shadow-lg hover:shadow-red-500/40 transition-all active:scale-95
+    }
+
+    .btn-danger-icon i {
+        @apply flex
+    }
+
+    .form-control {
+        @apply flex flex-col w-full
     }
 }

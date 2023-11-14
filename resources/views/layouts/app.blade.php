@@ -15,7 +15,6 @@
 
 <body>
     <main class="flex">
-
         <nav class="sidebar">
             <div class="mb-8">
                 <h3 class="font-semibold text-xl">
@@ -29,26 +28,20 @@
                     <i class="uil uil-estate"></i>
                     <a href="/">Inicio</a>
                 </li>
-                <li class="sidebar__menu--item">
+                <li class="{{ request()->path() == 'products' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
                     <i class="uil uil-shopping-bag"></i>
                     <a href="/products">Productos</a>
                 </li>
-                <li class="sidebar__menu--item">
+                <li class="{{ request()->path() == 'categories' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
                     <i class="uil uil-clipboard-notes"></i>
                     <a href="/categories">Categorias</a>
                 </li>
             </ul>
 
         </nav>
-
-        <section class="p-8">
-            <div>
-                <h1 class="font-bold text-3xl">
-                    @yield('title')
-                </h1>
-                <p>@yield('subtitle')</p>
-                
-            </div>
+        
+        <section class="p-8 w-full">
+            @yield('header')
 
             @yield('content')
         </section>
