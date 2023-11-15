@@ -24,18 +24,18 @@
             </div>
 
             <ul class="sidebar__menu">
-                <li class="sidebar__menu--item">
+                <a href="/" class="sidebar__menu--item">
                     <i class="uil uil-estate"></i>
-                    <a href="/">Inicio</a>
-                </li>
-                <li class="{{ request()->path() == 'products' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
+                    <p >Inicio</p>
+                </a>
+                <a href="/products" class="{{ request()->path() == 'products' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
                     <i class="uil uil-shopping-bag"></i>
-                    <a href="/products">Productos</a>
-                </li>
-                <li class="{{ request()->path() == 'categories' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
+                    <p>Productos</p>
+                </a>
+                <a href="/categories" class="{{ request()->path() == 'categories' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
                     <i class="uil uil-clipboard-notes"></i>
-                    <a href="/categories">Categorias</a>
-                </li>
+                    <p>Categorias</p>
+                </a>
             </ul>
 
         </nav>
