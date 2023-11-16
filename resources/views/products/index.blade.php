@@ -18,17 +18,19 @@
         <div class=" border-t border-white/10 my-4"></div>
         <div class="space-y-4">
             @forelse ($products as $product)
-                <form method="POST" action="{{ route('products.destroy', $product->id ) }}" class="grid grid-cols-7 gap-8 items-center">
+                <form method="POST" action="{{ route('products.destroy', $product->id ) }}" class="grid grid-cols-7 gap-4 items-center">
                     @method('DELETE')
                     @csrf
-
-                    <p>#{{ $product->id }}</p>
+                    <p>#{{ $product->id }}</p>  
                     <img src="{{ $product->image }}" alt="" width="64">
                     <p>{{ $product->name }}</p>
                     <p class="line-clamp-1">{{ $product->description }}</p>
                     <p>{{ $product->stock }} u.</p>
                     <p>{{ $product->price }} Bs</p>
                     <div class=" flex items-center gap-4">
+                        <a href="{{ route('products.show', $product->slug) }}" class="btn-primary-icon">
+                            <i class="uil uil-eye"></i>
+                        </a>
                         <a href="" class="btn-primary-icon">
                             <i class="uil uil-pen"></i>
                         </a>
@@ -41,7 +43,6 @@
                 <p class="text-center">No hay productos</p>
             @endforelse
         </div>
-
 
     </div>
 @endsection

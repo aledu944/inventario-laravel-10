@@ -14,7 +14,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        $categories = Category::all();
         return view('products.index', ['products' => $products]);
     }
 
@@ -24,7 +23,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('products.create', [ 'categories' => $categories ]);
+        return view('products.create', ['categories' => $categories]);
     }
 
     /**
@@ -32,7 +31,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // \dd($request->all());
         $product = new Product();
 
         $product->name = $request->name;
@@ -46,7 +44,6 @@ class ProductController extends Controller
 
         $product->save();
 
-        // dd($product);
 
         return redirect('/products');
     }
@@ -54,9 +51,12 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $product = Product::where('slug', $slug)->first();
+        return view('products.show', [
+            'product' => $product
+        ]);
     }
 
     /**
@@ -87,11 +87,11 @@ class ProductController extends Controller
 
     function create_slug($text)
     {
-        $text = strtolower($text); 
-        $text = preg_replace('/[^a-z0-9]+/','_',$text);
+        $text = strtolower($text);
+        $text = preg_replace('/[^a-z0-9]+/', '_', $text);
         $text = trim($text, '_');
-        $text = preg_replace('/_+/','_',$text);
+        $text = preg_replace('/_+/', '_', $text);
 
-        return $text;   
+        return $text;
     }
 }
