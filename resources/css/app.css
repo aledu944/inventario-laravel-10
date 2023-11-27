@@ -21,7 +21,7 @@
 
 @layer utilities {
     .sidebar {
-        @apply bg-soft-dark min-h-screen px-4 w-full max-w-[300px] py-8
+        @apply bg-soft-dark min-h-screen flex flex-col px-4 w-full max-w-[300px] py-8
     }
 
     .sidebar__menu {
@@ -38,6 +38,10 @@
 
     .sidebar__menu--active {
         @apply bg-gradient-to-tl to-primary-500 from-primary-700
+    }
+
+    .sidebar__menu--logout {
+        @apply flex py-4 px-2 rounded-lg cursor-pointer items-center gap-4 hover:shadow-red-500/40 hover:shadow-md transition-all bg-gradient-to-tl to-red-500 from-red-700 hover:text-white
     }
 
     .sidebar__menu--active i {

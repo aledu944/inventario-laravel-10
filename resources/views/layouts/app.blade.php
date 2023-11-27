@@ -17,11 +17,14 @@
 <body>
     <main class="flex">
         <nav class="sidebar">
-            <div class="mb-8">
-                <h3 class="font-semibold text-xl">
-                    Inventario Laravel
-                </h3>
-                <p class="text-sm text-gray-300">Bienvenido al sistema</p>
+            <div class="mb-8 flex gap-2">
+                <img class="rounded-full max-w-[50px]" src="https://lh3.googleusercontent.com/a/ACg8ocK2GAvSNuwN-zRMJkMVv8UPMuwaDZVyBGHyPR-pU4ei1S4=s96-c-rg-br100" alt="" srcset="">
+                <div>
+                    <h3 class="font-semibold text-xl">
+                        Inventario Laravel
+                    </h3>
+                    <p class="text-sm text-gray-300">Bienvenido <span class="font-semibold">Innova Code</span></p>
+                </div>
             </div>
 
             <ul class="sidebar__menu">
@@ -37,7 +40,20 @@
                     <i class="uil uil-clipboard-notes"></i>
                     <p>Categorias</p>
                 </a>
+                <a href="/categories" class="{{ request()->path() == 'categories' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
+                    <i class="uil uil-shopping-cart-alt"></i>
+                    <p>Ventas</p>
+                </a>
+                <a href="/categories" class="{{ request()->path() == 'categories' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
+                    <i class="uil uil-users-alt"></i>
+                    <p>Usuarios</p>
+                </a>
             </ul>
+            <div class="flex-1"></div>
+            <a href="/categories" class="sidebar__menu--logout">
+                <i class="uil uil-signout"></i>
+                <p>Cerrar Sesion</p>
+            </a>
 
         </nav>
         
