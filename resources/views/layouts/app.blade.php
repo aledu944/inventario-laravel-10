@@ -20,10 +20,8 @@
             <div class="mb-8 flex gap-2">
                 <img class="rounded-full max-w-[50px]" src="https://lh3.googleusercontent.com/a/ACg8ocK2GAvSNuwN-zRMJkMVv8UPMuwaDZVyBGHyPR-pU4ei1S4=s96-c-rg-br100" alt="" srcset="">
                 <div>
-                    <h3 class="font-semibold text-xl">
-                        Inventario Laravel
-                    </h3>
-                    <p class="text-sm text-gray-300">Bienvenido <span class="font-semibold">Innova Code</span></p>
+                    <p class="text-gray-300">Bienvenido <span class="font-semibold">{{ auth()->user()->name }}</span></p>
+                    <p class="text-sm text-gray-300">{{ auth()->user()->email }}</p>
                 </div>
             </div>
 
@@ -40,20 +38,23 @@
                     <i class="uil uil-clipboard-notes"></i>
                     <p>Categorias</p>
                 </a>
-                <a href="/categories" class="{{ request()->path() == 'categories' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
+                <a href="/categories" class="{{ request()->path() == 'sales' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
                     <i class="uil uil-shopping-cart-alt"></i>
                     <p>Ventas</p>
                 </a>
-                <a href="/categories" class="{{ request()->path() == 'categories' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
+                <a href="/users" class="{{ request()->path() == 'users' ? 'sidebar__menu--item sidebar__menu--active' : 'sidebar__menu--item' }}">
                     <i class="uil uil-users-alt"></i>
                     <p>Usuarios</p>
                 </a>
             </ul>
             <div class="flex-1"></div>
-            <a href="/categories" class="sidebar__menu--logout">
-                <i class="uil uil-signout"></i>
-                <p>Cerrar Sesion</p>
-            </a>
+            <form method="POST" class="w-full" action="{{route('auth.logut')}}">
+                @csrf
+                <button type="submit" class="sidebar__menu--logout">
+                    <i class="uil uil-signout"></i>
+                    <p>Cerrar Sesion</p>
+                </button>
+            </form>
 
         </nav>
         
